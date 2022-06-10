@@ -1,0 +1,36 @@
+{
+  "pages":[
+    "pages/detail/detail",
+    "pages/demo/demo",
+    "pages/index/index",
+    "pages/logs/logs"
+  ],
+  "window":{
+    "backgroundTextStyle":"light",
+    "navigationBarBackgroundColor": "#c8d9f7",
+    "navigationBarTitleText": "记账小程序",
+    "navigationBarTextStyle":"black"
+  },
+  "style": "v2",
+  "sitemapLocation": "sitemap.json",
+  "tabBar": {
+  "color": "#fff",
+  "selectedColor": "#5161a5",
+  "backgroundColor": "#c8d9f7",
+  "list": [
+    {
+      "pagePath": "pages/detail/detail",
+      "text": "明细",
+      "iconPath": "pages/img/收益明细.png",
+      "selectedIconPath": "pages/img/收益明细 (1).png"
+    },
+    {
+      "pagePath": "pages/demo/demo",
+      "text": "添加",
+      "iconPath": "pages/img/添加.png",
+      "selectedIconPath": "pages/img/添加 (1).png"
+    }
+  ]
+}
+
+}

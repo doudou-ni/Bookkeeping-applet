@@ -1,0 +1,92 @@
+<!--pages/demo/demo.wxml-->
+
+<view class="box" catchtap="hidebox">
+  <!-- 导航栏 支出/收入 -->
+  <view class="header" style="height: {{headerHeight}}rpx;">
+    <view class="{{index == bill_id?'onheader':''}}" wx:for="{{billType}}" wx:key="index" data-index="{{index}}" bindtap="changeBillid">{{item}}</view>
+  </view>
+  <!-- 添加自定义类别按钮 -->
+  <view class="add" catchtap="openkind">添加</view>
+  <!-- 弹出自定义类别输入框 -->
+  <view catchtap="keepbox" hidden="{{!hidebox}}">
+    <view class="input_box" hidden="{{!show_input}}">
+      <view class="input_title">输入类别名称</view>
+      <!-- <view class="input_tip" style="color: #e04444;" hidden="{{!ontip}}">(提示：已超过四个字符)</view> -->
+      <view class="input_tip">(提示：不能超过四个字符)</view>
+      <view class="input_content">
+        <input catchinput="getInputValue" focus="true" type="text" confirm-type="done" maxlength="4" value="{{input_value}}"/>
+      </view>
+      <view class="input_bnts">
+        <view catchtap="hidebox">取消</view>
+        <view catchtap="addkind">确定</view>
+      </view>
+    </view>  
+  </view>
+  <!-- 选择类别 -->
+  <view class="kinds">
+    <swiper style="height:{{swiperHeight}}rpx;" current="{{current}}" bindchange="changeCurrent">
+      <swiper-item wx:for="{{list}}" wx:for-item="billList" wx:key="index">
+        <scroll-view style="height: 100%;" scroll-y="true">
+          <view wx:for="{{billList}}" wx:for-item="kindList" class="kind" data-index="{{index}}"  wx:key="index"  catchtap="selectedkind" bindlongpress="removekind">
+            <!-- 类别 -->
+            <view class="kindImg {{index == kind_id?'onkind':''}}">
+              <image src="{{kindList.icon}}"></image>
+            </view>
+            <view class="kindItem ">{{kindList.text}}</view>
+          </view>
+        </scroll-view>
+      </swiper-item>
+    </swiper>
+  </view>
+  <!-- 表单 -->
+  <view catchtap="keepbox" hidden="{{!hidebox}}">
+  <view hidden="{{!formbox}}">
+  <form bindsubmit="formSubmit" bindreset="formReset">
+    <view class="formbox" style="height: {{fixerHeight}}rpx;">
+    <!-- 输入金额 -->
+    <view class="formMoney">
+      <view>金额：</view>
+      <input name="money" type="digit" focus="true" catchinput="getNumber" placeholder="0.00" value="{{money}}"	adjust-position="true"/>
+    </view>
+    <!-- 选择分类 -->
+    <view class="formKind">
+      <view>选择分类：</view>
+      <picker  name="kind" bindchange="bindKindChange" value="{{list[bill_id][kind_id].text}}" range="{{list[bill_id]}}" range-key="text">
+        <view>{{list[bill_id][kind_id].text}}</view>
+      </picker>
+    </view>
+    <!-- 选择支付方式 -->
+    <view class="formPayment">
+      <view hidden="{{bill_id!=0}}">支付方式：</view>
+      <view hidden="{{bill_id==0}}">收款方式：</view>
+      <view>
+        <picker name="payment" value="{{payment[index]}}" range="{{payment}}" bindchange="bindPaymentChange">
+          <view class="picker">
+            {{payment[index]}}
+          </view>
+        </picker>
+      </view>
+    </view>
+    <!-- 选择日期 -->
+    <view class="formDate">
+      <view>日期：</view>
+      <view>
+        <picker name="date" mode="date" value="{{date}}" start="2020-01-01" end="{{date}}" bindchange="bindDateChange">
+          <view class="picker">
+            {{date}}
+          </view>
+        </picker>
+      </view>
+    </view>
+    <view class="formNote">
+      <input name="note" type="text" catchinput="getInputValue" placeholder="点击写备注...(不超过16个字符)" value="{{input_value}}" maxlength="16" adjust-position="true"/>
+    </view>
+    <view class="formBnt">
+      <button form-type="reset" bindtap="closeForm">取消</button>
+      <button form-type="submit">保存</button>
+    </view>
+  </view>
+  </form>
+</view>
+</view>
+</view>

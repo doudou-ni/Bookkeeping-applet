@@ -1,0 +1,62 @@
+<!--pages/detail/detail.wxml-->
+<!-- 账单 -->
+<view class="detail_box">
+    <!-- 头部 -->
+    <view class="header" style="height: {{headerHeight}}rpx;">
+      <picker mode="date" fields="month" value="{{date}}" start="1996-09-01" end="{{date}}" bindchange="bindDateChange">
+        <view class="header-item">
+          <text>{{date.year}}年</text>
+          <text class='arrow'>{{date.month}}月</text>
+        </view>
+      </picker>
+      <view>
+        <view class="header-item">
+          <text>支出</text>
+          <text>{{money.useMoney==0?'0.00':money.useMoney}}</text>
+        </view>
+        <view class="header-item">
+          <text>收入</text>
+          <text>{{money.getMoney==0?'0.00':money.getMoney}}</text>
+        </view>
+        <view class="header-item">
+          <text>数目</text>
+          <text>{{number}}</text>
+        </view>
+      </view>
+    </view>
+    <!-- 主体 -->
+    <scroll-view scroll-y class="scroll-view" style="height: {{scrollHeight}}rpx">
+        <view class="main">
+          <block wx:if="{{Lists == ''}}">
+            <view>
+              <text>本月没有记录哦, 马上去消费</text>
+            </view>
+          </block>
+          <view class="bill_box" wx:for="{{Lists}}" wx:for-item="List" wx:key="index">
+            <view class="box_header">
+              <view>{{List.date}}</view>
+              <view>
+                <view>出 {{List.expense}}</view>
+                <view>入 {{List.income}}</view>
+              </view>
+            </view>
+            <view wx:for="{{List.list}}" wx:for-item="list" wx:key="index" class="bill_list"  data-id="{{list._id}}" bindlongpress="deleteBill">
+              <view class="kind_img {{list.symbol==0?'':'onkind'}}">
+                <image src="{{list.icon}}"></image>
+              </view>
+              <view class="box_text" >
+                <view>
+                  <view>{{list.kind}}</view>
+                  <view>备注: {{list.note}}</view>
+                </view>
+                <view>
+                  <view wx:if="{{list.symbol==0}}" style="font-weight: bolder;">-{{list.money}}</view>
+                  <view wx:if="{{list.symbol==1}}" style="color: #ff993c; font-weight: bolder;">+{{list.money}}</view>
+                  <view>{{list.payment}}</view>
+                </view>
+              </view>
+            </view>
+          </view>
+        </view>
+    </scroll-view>
+</view>
