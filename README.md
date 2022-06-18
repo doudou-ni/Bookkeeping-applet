@@ -16,7 +16,7 @@
 
 ![image](https://user-images.githubusercontent.com/103476625/174425084-1ef80e70-d172-4941-971f-f8a6d20ab69c.png)
 
-2）明细页面：
+2）明细页面：  
  1、显示该月份的总支出，总收入，账单数量和账单列表
  
  ![image](https://user-images.githubusercontent.com/103476625/174425118-12572bc5-1928-43b8-b1d7-c6cf0339e64b.png)
@@ -25,7 +25,7 @@
  
  ![image](https://user-images.githubusercontent.com/103476625/174425143-43eefa19-5e18-454b-b05e-c754c326ddf1.png)
 
-3）添加页面：
+3）添加页面：  
  1、分为支出和收入两部分，可添加分类
      
  ![image](https://user-images.githubusercontent.com/103476625/174425150-1860877f-809a-44ed-8cc3-bd7c14b9029c.png)
@@ -58,7 +58,7 @@
  ![image](https://user-images.githubusercontent.com/103476625/174425399-75663a68-31c8-4ee3-9917-0628dc50ce60.png)
  ![image](https://user-images.githubusercontent.com/103476625/174425404-a42a2887-1c4c-41d9-a515-b0c7b7033d23.png)
 
-三、核心代码：
+三、核心代码：  
 
 1.滑块页面自适应高度，避免页面头部部分会随内容往下滑动
  
