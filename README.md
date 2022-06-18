@@ -46,7 +46,7 @@
        
  ![image](https://user-images.githubusercontent.com/103476625/174425347-5a34a2ed-f958-4d95-902c-0843193a5cda.png)
  ![image](https://user-images.githubusercontent.com/103476625/174425350-1d586533-54b4-4560-b6fc-20a5b528bc9b.png)
- ![image](https://user-images.githubusercontent.com/103476625/174425355-b110fa5a-7d39-4293-92d8-451af563e8a3.png)  
+ ![image](https://user-images.githubusercontent.com/103476625/174425776-5c7d9907-e340-4124-9f4d-c559df1bdc09.png)
 
  5、下面的提交表单前和提交表单后的账单列表
      
